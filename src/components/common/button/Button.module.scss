@@ -1,0 +1,38 @@
+@import "../../../styles/common.scss";
+
+.button_container {
+  @include align_center;
+  background: $buttonBg;
+  border: none;
+  width: 6.875rem;
+  height: 2.063rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 0 0 #3F2ABD;
+  transition: all 0.1s ease-in-out;
+  padding: 0 0.75rem;
+  cursor: pointer;
+
+  .button_spinner {
+    width: 6.875rem;
+  height: 2.063rem;
+    @include content_center;
+  }
+
+  &:hover, &:active {
+    background: #3F2ABD;
+    border-bottom: 0;
+    transform: translateY(2px);
+  }
+
+  p {
+    @include subtitle;
+    color: white;
+  }
+
+  .divider {
+    height: 100%;
+    width: 0.063rem;
+    margin: 0 0.75rem;
+    background: rgba($color: white, $alpha: 0.2);
+  }
+}

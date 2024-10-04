@@ -1,0 +1,27 @@
+@import "../../../styles/common.scss";
+
+
+.container {
+  @include content_center;
+  min-width: 5.125rem; 
+  width: min-content;  
+  height: 1.875rem; 
+  gap: 0.5rem;       
+  border-radius: 0.5rem; 
+  border: 1px dashed $pillBorderBg; 
+  padding: 0 0.75rem;
+  background-color: transparent; 
+  outline: none; 
+  cursor: pointer; 
+
+  p {
+    @include p2;
+    color: $g300;
+    white-space: nowrap;
+  }
+
+  img {
+    width: 8px;
+    height: 8px;
+  }
+}

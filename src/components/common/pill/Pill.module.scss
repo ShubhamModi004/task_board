@@ -1,0 +1,25 @@
+@import "../../../styles/common.scss";
+
+.container {
+  @include align_center;
+  gap: 0.5rem;
+  min-width: 4.5625rem;
+  width: min-content;
+  height: 1.875rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid $pillBorderBg;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: $pillBg;
+  }
+
+  p {
+    @include p1;
+    color: $g300;
+    white-space: nowrap
+  }
+}

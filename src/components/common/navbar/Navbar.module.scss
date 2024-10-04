@@ -1,0 +1,68 @@
+@import "../../../styles/common.scss";
+
+.navbar {
+  @include content_center;
+  width: 100vw;  
+  height: 3.5rem;
+  background-color: white;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000; 
+  border-bottom: 1px solid $pillBorderBg;
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1), 
+              0 -0.125rem 0.375rem rgba(0, 0, 0, 0.05);
+
+  .inner_container {
+    @include align_center_stretch;
+    width: clamp($medium, $medium, 100%); // Set width to clamp between 100% and $medium
+    padding: 0 1rem;
+
+    .all_tasks {
+      @include align_center;
+      gap: 0.5rem;
+      min-width: 4.5625rem;
+      width: min-content;
+      height: 2.5rem;
+      border-radius: 0.5rem;
+      border: 0.0625rem solid $pillBorderBg;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      user-select: none;
+      background-color: $pillBg;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: transparent
+      }
+
+      p {
+        @include subtitle;
+        color: $g300;
+        white-space: nowrap;
+      } 
+    }
+
+    .create {
+      @include align_center;
+      gap: 0.5rem;
+      min-width: 4.5625rem;
+      width: min-content;
+      height: 2.5rem;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $pillBg;
+      }
+
+      p {
+        @include subtitle;
+        color: $g300;
+        white-space: nowrap;
+      } 
+    }
+  }
+}

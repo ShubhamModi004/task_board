@@ -1,0 +1,27 @@
+@import "../../../styles/common.scss";
+
+.container {
+  position: relative;
+  width: auto;
+  background: transparent;
+  border: 0;
+  height: 1.25rem;
+
+  .text_input {
+    position: relative;
+    background: transparent !important;
+    border: none !important;
+    resize: none;
+    outline: none;
+    @include title;
+    color: $g300;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: $g300;
+      opacity: 1;
+    }
+  }
+}

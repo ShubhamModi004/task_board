@@ -1,0 +1,9 @@
+@import "../../styles/common.scss";
+
+.container {
+  @extend .page_layout;
+  @include justify_center;
+  width: 100vw;
+  padding-top: 5rem;
+  height: 100vh;
+}

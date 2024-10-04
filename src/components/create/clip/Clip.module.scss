@@ -1,0 +1,14 @@
+@import "../../../styles/common.scss";
+
+.clipIconContainer {
+  position: relative;
+  .upload_thing_button {
+    position: absolute !important;
+    opacity: 0 !important;
+    width: 1.25rem;
+    top: -1rem;
+    label {
+      width: 1.25rem;
+    }
+  }
+}

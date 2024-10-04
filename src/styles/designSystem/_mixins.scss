@@ -1,0 +1,23 @@
+@import "./sizes";
+
+@mixin content_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin justify_center {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin align_center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin align_center_stretch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

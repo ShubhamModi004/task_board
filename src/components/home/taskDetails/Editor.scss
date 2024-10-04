@@ -1,0 +1,17 @@
+@import "../../../styles/common.scss";
+
+.editor_container {
+  position: relative;
+
+  div{
+    &:focus-visible {
+      border: none;
+      outline: none;
+    }
+    img {
+      position: relative;
+      width: 100%;
+    }
+  }
+}
+

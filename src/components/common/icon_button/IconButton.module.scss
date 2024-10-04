@@ -1,0 +1,23 @@
+@import "../../../styles/common.scss";
+
+.container {
+  @include content_center;
+  border: none; 
+  outline: none; 
+  cursor: pointer; 
+  width: 1.125rem;
+  height: 1.125rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $g400;
+  }
+}
+
+.active {
+  background-color: $g400;
+}
+
+.in_active {
+  background-color: transparent;
+}

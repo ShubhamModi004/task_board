@@ -1,0 +1,59 @@
+$font-family-default: 'Nunito', sans-serif;
+$font-weight-black: 800;
+$font-weight-bold: 700;
+$font-weight-semi-bold: 600;
+$font-weight-medium: 500;
+$font-weight-regular: 400;
+$font-weight-light: 300;
+
+
+// Mixin for text styles
+@mixin text-style($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+  margin: 0;
+}
+
+// headings
+
+@mixin header {
+  @include text-style(0.875rem, $font-weight-medium);
+  letter-spacing: 0.2px;
+}
+
+
+// titles
+
+@mixin title {
+  @include text-style(1.125rem, $font-weight-medium);
+  line-height: 1.25rem;
+  letter-spacing: 0.2px;
+}
+
+@mixin subtitle {
+  @include text-style(0.875rem, $font-weight-medium);
+  line-height: 1.25rem;
+  letter-spacing: 0.2px;
+}
+
+// para
+
+@mixin p1 {
+  @include text-style(0.75rem, $font-weight-medium);
+  line-height: 1.25rem;
+  letter-spacing: 0.2px;
+}
+
+@mixin p2 {
+  @include text-style(0.75rem, $font-weight-regular);
+  line-height: 1.25rem;
+  letter-spacing: 0.2px;
+}
+
+@mixin hint {
+  @include text-style(0.5rem, $font-weight-regular);
+  line-height: 1.25rem;
+  letter-spacing: 0.2px;
+}
+
+

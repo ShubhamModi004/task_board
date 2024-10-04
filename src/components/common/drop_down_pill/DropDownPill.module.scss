@@ -1,0 +1,82 @@
+@import "../../../styles/common.scss";
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  .dropdown_toggle {
+    @include align_center;
+    gap: 0.5rem;
+    min-width: 4.5625rem;
+    width: min-content;
+    height: 1.875rem;
+    border-radius: 0.5rem;
+    border: 0.0625rem solid $pillBorderBg;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: $pillBg;
+    }
+
+    p {
+      @include p1;
+      color: $g300;
+      white-space: nowrap
+    }
+  }
+
+  .dropdown_menu {
+    position: absolute;
+    top: calc(100% + 0.25rem);
+    left: 0;
+    width: 20rem;
+    max-width: 20rem;
+    max-height: 17.75rem;
+    background-color: white;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 1000;
+
+    .dropdown_search {
+      width: 100%;
+      padding: 0.5rem;
+      border: none;
+      border-bottom: 1px solid $pillBorderBg;
+      outline: none;
+      @include p1;
+    }
+
+    .dropdown_list {
+      max-height: 15rem;
+      overflow-y: auto;
+      padding: 0.5rem;
+      
+      .dropdown_item {
+        @include align_center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        transition: background-color 0.2s ease;
+
+        p {
+          @include p2;
+          color: $g300;
+        }
+
+        &:hover {
+          background-color: $g100;
+        }
+        .dropdown_title {
+          flex-grow: 1;
+        }
+        .dropdown_component {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}
