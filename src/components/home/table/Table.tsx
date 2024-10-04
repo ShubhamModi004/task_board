@@ -161,7 +161,7 @@ const TableComponent: React.FC<TableProps> = ({ data, loading }) => {
           </tr>
         </thead>
         <tbody>
-          {loading
+          {loading && !data
             ? [...Array(5)].map((_, i) => (
                 <tr key={i} className={styles["shimmer-row"]}>
                   <td></td>
