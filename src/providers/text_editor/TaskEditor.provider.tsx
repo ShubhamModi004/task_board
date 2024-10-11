@@ -19,6 +19,8 @@ import {
 // task editor imports
 import { useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import Highlight from '@tiptap/extension-highlight'
+import Typography from '@tiptap/extension-typography'
 import Bold from "@tiptap/extension-bold";
 import { Heading } from "@tiptap/extension-heading";
 import Italic from "@tiptap/extension-italic";
@@ -50,6 +52,8 @@ const TaskEditorProvider = ({ children }: Props): JSX.Element => {
           keepAttributes: false,
         },
       }),
+      Highlight,
+      Typography,
       Heading,
       TaskList,
       TaskItem,

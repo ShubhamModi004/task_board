@@ -14,6 +14,10 @@ import StarterKit from "@tiptap/starter-kit";
 import Bold from "@tiptap/extension-bold";
 import { Heading } from "@tiptap/extension-heading";
 import Italic from "@tiptap/extension-italic";
+import Link from "@tiptap/extension-link";
+import Image from "@tiptap/extension-image";
+import TaskList from "@tiptap/extension-task-list";
+import TaskItem from "@tiptap/extension-task-item";
 
 // components
 import Breadcrumb from "@/components/common/breadcrumb";
@@ -34,7 +38,7 @@ import { projects } from "@/utils/taskProjects";
 const TaskDetailPage = () => {
   const { task } = useContext(TaskContext);
   const editor = useEditor({
-    extensions: [StarterKit, Heading, Bold, Italic],
+    extensions: [StarterKit, Heading, Bold, Italic, Image, TaskList, TaskItem, Link],
     content: `${task?.description}`,
     editable: false,
   });
