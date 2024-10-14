@@ -23,6 +23,7 @@
     }
   
     &_task_description {
+      min-height: 1.25rem;
       margin-bottom: 1.75rem;
       div {
         @include subtitle;
