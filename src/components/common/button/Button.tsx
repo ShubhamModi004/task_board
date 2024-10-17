@@ -23,12 +23,11 @@ const Button = ({ onClick, text, loading }: Props): JSX.Element => {
         <div className={styles["button_spinner"]}>
           <Spinner />
         </div>
-        
       ) : (
         <>
           <p>{text || "Create"}</p>
           <div className={styles["divider"]}/>
-          <Image src={"/assets/icons/Enter.webp"} alt="Enter" width={16} height={16} />
+          <Image className={styles["img"]} src={"/assets/icons/Enter.svg"} alt="Enter" width={16} height={16} />
         </>
       )}
     </button>

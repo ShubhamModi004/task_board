@@ -7,7 +7,7 @@ export const projects: Item[] = [
     title: "Frontend",
     image: (
       <Image
-        src={"/assets/icons/Frontend.webp"}
+        src={"/assets/icons/Frontend.svg"}
         alt="Frontend"
         width={16}
         height={16}
@@ -19,7 +19,7 @@ export const projects: Item[] = [
     title: "Cloud",
     image: (
       <Image
-        src={"/assets/icons/Cloud.webp"}
+        src={"/assets/icons/Cloud.svg"}
         alt="Cloud"
         width={16}
         height={16}
@@ -31,7 +31,7 @@ export const projects: Item[] = [
     title: "Performance",
     image: (
       <Image
-        src={"/assets/icons/Performance.webp"}
+        src={"/assets/icons/Performance.svg"}
         alt="Performance"
         width={16}
         height={16}
@@ -43,7 +43,7 @@ export const projects: Item[] = [
     title: "Backend",
     image: (
       <Image
-        src={"/assets/icons/Backend.webp"}
+        src={"/assets/icons/Backend.svg"}
         alt="Backend"
         width={16}
         height={16}

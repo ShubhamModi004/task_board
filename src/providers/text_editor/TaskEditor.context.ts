@@ -8,6 +8,8 @@ import { Editor } from "@tiptap/react";
 export interface TaskEditorContext extends TaskEditorState {
     editor: Editor | null;
     loading: boolean;
+    tagsLoading: boolean;
+    generatedTags: string[];
     actions: {
         setTitle: (title: string) => void;
         setDescription: (description: string) => void;

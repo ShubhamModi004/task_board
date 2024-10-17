@@ -18,7 +18,7 @@ const Assignee = () => {
     title: "Project",
     image: (
       <Image
-        src={"/assets/icons/Project.webp"}
+        src={"/assets/icons/Project.svg"}
         alt="Frontend"
         width={16}
         height={16}

@@ -83,7 +83,7 @@ const IconSection = (): JSX.Element | null => {
           key={index}
           image={
             <Image
-              src={`/assets/icons/${icon?.name}.webp`}
+              src={`/assets/icons/${icon?.name}.svg`}
               alt={icon?.name}
               width={18}
               height={18}

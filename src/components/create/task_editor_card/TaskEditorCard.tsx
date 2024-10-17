@@ -27,8 +27,20 @@ import { PROJECT } from "@/types/type";
 import { debounce } from "@/utils/helper";
 
 const TaskEditorCard = (): JSX.Element => {
-  const { title, status, assignee, priority, tags, project, loading, actions } =
-    useContext(TaskEditorContext);
+  const {
+    title,
+    status,
+    assignee,
+    priority,
+    tags,
+    project,
+    loading,
+    actions,
+    generatedTags,
+    tagsLoading,
+  } = useContext(TaskEditorContext);
+
+  console.log("generatedTags", generatedTags, tagsLoading);
 
   const CalendarImage = () => {
     return (
@@ -99,35 +111,38 @@ const TaskEditorCard = (): JSX.Element => {
           >
             <TextEditor />
           </section>
-
-          <motion.section
-            className={styles["container_top_ai_suggestions"]}
-            initial={{ height: "0px", opacity: 0 }}
-            animate={{
-              height: tags && tags?.length > 0 ? "auto" : "0px",
-              opacity: tags && tags?.length > 0 ? 1 : 0,
-            }}
-            transition={{ duration: 0.3, ease: "linear" }}
-          >
-            <AnimatePresence>
-              {tags?.map((tag, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -10 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                >
-                  <DashedButton
-                    onClick={() => handleDelete(tag)}
-                    imagePath="/assets/icons/close.webp"
-                    text={tag}
-                  />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.section>
-
+          {!tagsLoading && (
+            <motion.section
+              className={styles["container_top_ai_suggestions"]}
+              initial={{ height: "0px", opacity: 0 }}
+              animate={{
+                height: tags && tags?.length > 0 ? "auto" : "0px",
+                opacity: tags && tags?.length > 0 ? 1 : 0,
+              }}
+              transition={{ duration: 0.3, ease: "linear" }}
+            >
+              <AnimatePresence>
+                {generatedTags?.map((tag, index) => {
+                  console.log("tags", tags);
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <DashedButton
+                        onClick={() => handleDelete(tag)}
+                        imagePath="/assets/icons/close.webp"
+                        text={tag}
+                      />
+                    </motion.div>
+                  );
+                })}
+              </AnimatePresence>
+            </motion.section>
+          )}
           <section className={styles["container_top_task_attachements"]}>
             <TaskStatus />
             <Assignee />

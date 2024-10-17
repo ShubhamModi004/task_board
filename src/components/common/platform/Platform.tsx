@@ -16,18 +16,18 @@ const Platform = ({ platform }: Props) => {
   const imagePath = useMemo(() => {
     switch (platform) {
       case PROJECT.FRONTEND:
-        return "/assets/icons/Frontend.webp";
+        return "/assets/icons/Frontend.svg";
       case PROJECT.BACKEND:
-        return "/assets/icons/Backend.webp";
+        return "/assets/icons/Backend.svg";
       case PROJECT.CLOUD:
-        return "/assets/icons/Cloud.webp";
+        return "/assets/icons/Cloud.svg";
       case PROJECT.PERFORMANCE:
-        return "/assets/icons/Performance.webp";
+        return "/assets/icons/Performance.svg";
       case PROJECT.QA:
         return "/assets/icons/Qa.webp";
 
       default:
-        return "/assets/icons/Frontend.webp";
+        return "/assets/icons/Frontend.svg";
     }
   }, [platform]);
 

@@ -30,7 +30,7 @@ import TaskList from "@tiptap/extension-task-list";
 import TaskItem from "@tiptap/extension-task-item";
 import { PRIORITY, PROJECT, TASKSTATUS } from "@/types/type";
 import { useRouter } from "next/navigation";
-// add a comment for env
+import { useTagGenerator } from "@/hooks/useTagGenerator";
 
 type Props = {
   children: React.ReactNode;
@@ -61,7 +61,7 @@ const TaskEditorProvider = ({ children }: Props): JSX.Element => {
       Bold,
       Italic,
       Link.configure({
-        openOnClick: false,
+        openOnClick: true,
       }),
       Image.configure({
         HTMLAttributes: {
@@ -129,11 +129,18 @@ const TaskEditorProvider = ({ children }: Props): JSX.Element => {
     [editor, router, setTaskDescription]
   );
 
+  const { generatedTags, loading: tagsLoading } = useTagGenerator(
+    state.title,
+    state.description
+  );
+
   const value = useMemo(
     (): TaskEditorContext => ({
       ...state,
       editor,
       loading,
+      generatedTags,
+      tagsLoading,
       actions: {
         setTitle: (title) => {
           setTaskTitle(title);
@@ -171,20 +178,7 @@ const TaskEditorProvider = ({ children }: Props): JSX.Element => {
         },
       },
     }),
-    [
-      state,
-      editor,
-      loading,
-      setTaskTitle,
-      setTaskDescription,
-      setTaskStatus,
-      setTaskAssignee,
-      setTaskPriority,
-      setTaskTags,
-      setTaskProject,
-      deleteTaskTags,
-      handleSaveTask,
-    ]
+    [state, editor, loading, generatedTags, tagsLoading, setTaskTitle, setTaskDescription, setTaskStatus, setTaskAssignee, setTaskPriority, setTaskTags, setTaskProject, deleteTaskTags, handleSaveTask]
   );
 
   return (

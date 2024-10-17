@@ -40,7 +40,7 @@ const Clip = (): JSX.Element | null => {
       <IconButton
         image={
           <Image
-            src={`/assets/icons/Clip.webp`}
+            src={`/assets/icons/Clip.svg`}
             alt={"Clip"}
             width={18}
             height={18}
