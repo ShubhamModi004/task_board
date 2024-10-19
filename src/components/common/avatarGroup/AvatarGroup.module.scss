@@ -1,0 +1,25 @@
+@import "../../../styles/common.scss";
+
+.assignee-avatar-group {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  div:nth-child(n + 1) {
+    margin-left: -10px;
+  }
+
+  .avatar-wrapper {
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 16px;
+    width: 16px;
+    border: 0.5px solid white ;
+  }
+  
+  .avatar {
+    border-radius: 50%;
+  }
+}
+
+

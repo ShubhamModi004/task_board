@@ -40,8 +40,6 @@ const TaskEditorCard = (): JSX.Element => {
     tagsLoading,
   } = useContext(TaskEditorContext);
 
-  console.log("generatedTags", generatedTags, tagsLoading);
-
   const CalendarImage = () => {
     return (
       <NextImage
@@ -116,10 +114,10 @@ const TaskEditorCard = (): JSX.Element => {
               className={styles["container_top_ai_suggestions"]}
               initial={{ height: "0px", opacity: 0 }}
               animate={{
-                height: tags && tags?.length > 0 ? "auto" : "0px",
-                opacity: tags && tags?.length > 0 ? 1 : 0,
+                height: generatedTags && generatedTags?.length > 0 ? "auto" : "0px",
+                opacity: generatedTags && generatedTags?.length > 0 ? 1 : 0,
               }}
-              transition={{ duration: 0.3, ease: "linear" }}
+              transition={{ duration: 0.1, ease: "linear" }}
             >
               <AnimatePresence>
                 {generatedTags?.map((tag, index) => {
@@ -130,7 +128,7 @@ const TaskEditorCard = (): JSX.Element => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -10 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      transition={{ duration: 0.1, ease: "easeInOut" }}
                     >
                       <DashedButton
                         onClick={() => handleDelete(tag)}
@@ -143,7 +141,11 @@ const TaskEditorCard = (): JSX.Element => {
               </AnimatePresence>
             </motion.section>
           )}
-          <section className={styles["container_top_task_attachements"]}>
+          <motion.section
+            className={styles["container_top_task_attachements"]}
+            layout
+            transition={{ duration: 0.2 }} // Control the animation duration
+          >
             <TaskStatus />
             <Assignee />
             <Priority />
@@ -151,10 +153,11 @@ const TaskEditorCard = (): JSX.Element => {
             <Projects />
             <DropdownPill
               image={CalendarImage()}
+              pillPlaceholder="Due Date"
               placeholder="Due Date"
               disable={true}
             />
-          </section>
+          </motion.section>
         </div>
 
         <div className={styles["divider"]} />

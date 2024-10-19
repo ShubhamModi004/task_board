@@ -15,7 +15,7 @@ export interface TaskEditorState {
   title: string;
   description: string;
   status: TASKSTATUS;
-  assignee?: ASSIGNEE;
+  assignee?: ASSIGNEE[];
   priority?: PRIORITY;
   tags?: string[];
   project?: PROJECT;

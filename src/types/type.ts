@@ -22,6 +22,7 @@ export enum PROJECT {
 }
 
 export type ASSIGNEE = {
-  name: string ,
+  id: number,
+  name: string,
   imageUrl: string
 }

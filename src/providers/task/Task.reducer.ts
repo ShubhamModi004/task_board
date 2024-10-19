@@ -1,4 +1,4 @@
-import {  PRIORITY, PROJECT, TASKSTATUS } from "@/types/type";
+import {  ASSIGNEE, PRIORITY, PROJECT, TASKSTATUS } from "@/types/type";
 import { actionTypes, setTaskActionType, clearTaskActionType } from "./Task.actions";
 
 // Define Task interface, which is part of TaskState
@@ -6,7 +6,7 @@ export interface Task {
   title: string;
   description: string;
   status: TASKSTATUS;
-  assignee?: string;
+  assignee?: ASSIGNEE[];
   priority?: PRIORITY;
   tags?: string[];
   project?: PROJECT;

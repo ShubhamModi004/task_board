@@ -34,8 +34,9 @@ const Priority = () => {
     <DropdownPill
       onClick={handleSelection}
       image={selectedValue?.image}
+      pillPlaceholder={selectedValue?.title}
       items={priorities}
-      placeholder={selectedValue?.title}
+      placeholder='Priority'
     />
   );
 };

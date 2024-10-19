@@ -14,7 +14,7 @@ export interface TaskEditorContext extends TaskEditorState {
         setTitle: (title: string) => void;
         setDescription: (description: string) => void;
         setStatus: (status: TASKSTATUS) => void;
-        setAssignee: (assignee: ASSIGNEE) => void;
+        setAssignee: (assignee: ASSIGNEE[]) => void;
         setPriority: (priority: PRIORITY) => void;
         setTags: (tags: string) => void;
         deleteTags: (tags: string) => void;

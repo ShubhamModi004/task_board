@@ -18,18 +18,17 @@ export const useTagGenerator = (
   // Debounced function that only runs after user stops typing for the delay period
   const generateTags = useCallback(
     debounce(async (title: string, description: string) => {
-      if (!title || !description) return;
+      return;
+      if (!title || !description || (!title && description == "Describe this task")) return;
 
       const prompt = `
-      Generate a list of up to 4 concise and relevant tags (as keywords) based on the following task details: 
+      Generate a list of max up to 2 and minimum 1 concise and relevant one word tags with First character as Capital (as keywords) based on the following task details: 
       Title: ${title}
       Description: ${description}
-      The task is related to building software products such as websites or mobile applications. 
+      The task is related to building software products such as websites or mobile applications. Tags should be close to Blocked, Customer Request, Tech Debt, Frontend, Backend, QA, UI, Pending.
       Ensure the tags are highly relevant to software development processes, project management, and product building.
     `;
-
       setLoading(true);
-
       try {
         const response = await openai.chat.completions.create({
           model: "gpt-3.5-turbo",
@@ -40,7 +39,6 @@ export const useTagGenerator = (
         const formattedTags = tags
           .split(",")
           .map((tag) => tag.trim())
-          .slice(0, 4); // Limit to 4 tags
         setGeneratedTags(formattedTags);
       } catch (error) {
         console.error("Error generating tags:", error);

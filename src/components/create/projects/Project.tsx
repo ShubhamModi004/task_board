@@ -62,7 +62,8 @@ const Assignee = () => {
       onClick={handleSelection}
       image={selectedValue?.image}
       items={projects}
-      placeholder={selectedValue?.title}
+      pillPlaceholder={selectedValue?.title}
+      placeholder="Change Project"
     />
   );
 };

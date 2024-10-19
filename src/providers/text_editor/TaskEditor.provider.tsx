@@ -69,7 +69,7 @@ const TaskEditorProvider = ({ children }: Props): JSX.Element => {
         },
       }),
     ],
-    content: "<p>Type something here...</p>",
+    content: "<p>Describe this task</p>",
   });
 
   //actions
