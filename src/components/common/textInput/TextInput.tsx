@@ -40,6 +40,7 @@ const TextInput: React.FC<Props> = ({
         defaultValue={defaultValue}
         placeholder={label}
         onChange={onChange}
+        maxLength={100}
         {...props}
       />
     </div>

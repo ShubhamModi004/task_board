@@ -163,41 +163,6 @@ const TableComponent: React.FC<TableProps> = ({ data, loading }) => {
 
   return (
     <List data={filteredData} loading={loading} filter={filter} />
-    // <motion.div
-    //   className={styles["table-container"]}
-    //   initial={{ opacity: 1 }}
-    //   animate={{ opacity: 1 }}
-    //   transition={{ duration: 0.6 }}
-    // >
-    //   <table className={styles["table"]}>
-    //     <thead>
-    //       <tr>
-    //         <th>Title</th>
-    //         <th>Status</th>
-    //         <th>Priority</th>
-    //         <th>Assignee</th>
-    //         <th>Project</th>
-    //         <th>Tags</th>
-    //       </tr>
-    //     </thead>
-    //     <tbody>
-    //       {loading && !data
-    //         ? [...Array(5)].map((_, i) => (
-    //           <tr key={i} className={styles["shimmer-row"]}>
-    //             <td></td>
-    //             <td></td>
-    //             <td></td>
-    //             <td></td>
-    //             <td></td>
-    //             <td></td>
-    //           </tr>
-    //         ))
-    //         : data?.map((task, index) => (
-    //           <TableRow key={index} task={task} loading={loading} />
-    //         ))}
-    //     </tbody>
-    //   </table>
-    // </motion.div>
   );
 };
 

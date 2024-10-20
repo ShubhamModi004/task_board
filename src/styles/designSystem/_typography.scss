@@ -36,6 +36,13 @@ $font-weight-light: 300;
   letter-spacing: 0.2px;
 }
 
+@mixin subtitle2 {
+  @include text-style(0.875rem, $font-weight-semi-bold);
+  line-height: 0.8125rem;
+  letter-spacing: 0.2px;
+}
+
+
 // para
 
 @mixin p1 {

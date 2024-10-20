@@ -32,7 +32,6 @@ const List = () => {
   return (
     <div className="task-list-container">
       <TaskProvider>
-        {/* <h1 className="task-list-title">Task List</h1> */}
         <TableComponent data={tasks} loading={loading} />
         <ModalContent />
       </TaskProvider>

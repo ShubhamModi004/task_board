@@ -33,6 +33,7 @@ import { assignees } from "@/utils/taskAssignees";
 import { priorities } from "@/utils/taskPriorities";
 import { projects } from "@/utils/taskProjects";
 import AvatarGroup from "@/components/common/avatarGroup";
+import DropdownPill from "@/components/common/drop_down_pill";
 
 // types
 
@@ -110,7 +111,14 @@ const TaskDetailPage = () => {
               placeholder={selectedStatus?.title}
             />
           )}
-          <AvatarGroup assignees={task?.assignee} />
+          <Pill
+              image={selectedStatus?.image}
+              placeholder={selectedStatus?.title}
+          />
+          {task?.assignee && (
+            <DropdownPill image={<AvatarGroup assignees={task?.assignee} />} pillPlaceholder="Assignee" disable={true}/>
+          )}
+          
           {selectedPriority && (
             <Pill
               image={selectedPriority?.image}
