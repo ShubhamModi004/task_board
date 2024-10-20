@@ -196,6 +196,7 @@
     padding: 0px 1.5rem 0px 2rem;
     border-bottom: 0.5px solid $tableBorder;
     gap: 0.5rem;
+    cursor: pointer;
 
     &:hover {
       background-color: $g100; 

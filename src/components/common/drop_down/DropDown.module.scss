@@ -18,6 +18,7 @@
     height: 1.75rem;
     border-radius: 0.25rem;
     padding: 0px 5px;
+    cursor: pointer;
     &:hover {
       background: lch(69.09 1 282.863 / 0.2);
     }
@@ -106,6 +107,7 @@
         border-radius: 0.25rem;
         margin: 0.063rem 0px;
         padding-left: 1rem;
+        cursor: pointer;
         &:hover {
           background: lch(69.09 1 282.863 / 0.2);
         }
@@ -119,6 +121,7 @@
         border-radius: 0.25rem;
         height: 1.75rem;
         @include align_center;
+        cursor: pointer;
         &:hover {
           background: lch(69.09 1 282.863 / 0.2);
         }

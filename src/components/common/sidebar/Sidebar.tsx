@@ -15,10 +15,10 @@ const Sidebar = () => {
     return (
         <nav className={styles["sidebar"]}>
             <div className={styles['header']}>
-                <div className={styles['name-cont']}>
+                <Link href={"/"} className={styles['name-cont']}>
                     <Image width={20} height={20} src={'/assets/icons/logo.svg'} alt={"icon"} />
                     <span className={styles['name']}>Task Board</span>
-                </div>
+                </Link>
 
                 <Link href={'/create'} className={styles['bttn']} >
                     <Image width={16} height={16} src={"/assets/icons/Createnew.svg"} alt={"create-icon"} />
