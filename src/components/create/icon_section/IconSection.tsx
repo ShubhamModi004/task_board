@@ -25,7 +25,7 @@ const IconSection = (): JSX.Element | null => {
     setShowEmojiPicker(false); 
   }, [editor]);
 
-  const icons = useMemo(() => [
+  const icons = [
     {
       name: "Tagger",
       action: () => console.log("Tagging function"),
@@ -71,7 +71,7 @@ const IconSection = (): JSX.Element | null => {
       action: () => editor?.chain().focus().toggleTaskList().run(),
       isActive: editor?.isActive("taskList") ?? false,
     },
-  ], [editor]);
+  ];
 
   if (!editor) return null;
 

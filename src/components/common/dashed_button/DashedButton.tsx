@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 
 // styles
 import styles from "./DashedButton.module.scss";
@@ -8,14 +7,13 @@ import styles from "./DashedButton.module.scss";
 interface Props {
   onClick?: () => void;
   text?: string;
-  imagePath?: string;
+  selected?: boolean;
 }
 
-const DashedButton = ({ onClick, text, imagePath }: Props): JSX.Element => {
+const DashedButton = ({ onClick, text, selected }: Props): JSX.Element => {
   return (
-    <button onClick={onClick} className={styles["container"]}>
+    <button onClick={onClick} className={`${styles["container"]} ${selected && `${styles["selected"]}`}`}>
       <p>{text || 'Text'}</p>
-      {imagePath && (<Image src={imagePath} alt="Close" width={8} height={8} />)}
     </button>
   )
 }

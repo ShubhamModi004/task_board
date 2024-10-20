@@ -10,7 +10,7 @@ const openai = new OpenAI({
 export const useTagGenerator = (
   taskTitle: string,
   taskDescription: string,
-  delay: number = 4000
+  delay: number = 2000
 ) => {
   const [generatedTags, setGeneratedTags] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
@@ -18,8 +18,9 @@ export const useTagGenerator = (
   // Debounced function that only runs after user stops typing for the delay period
   const generateTags = useCallback(
     debounce(async (title: string, description: string) => {
-      return;
-      if (!title || !description || (!title && description == "Describe this task")) return;
+      console.log("title", title);
+      console.log("description", description);
+      if (!title || !description || title == "Task Title" ) return;
 
       const prompt = `
       Generate a list of max up to 2 and minimum 1 concise and relevant one word tags with First character as Capital (as keywords) based on the following task details: 
@@ -28,7 +29,7 @@ export const useTagGenerator = (
       The task is related to building software products such as websites or mobile applications. Tags should be close to Blocked, Customer Request, Tech Debt, Frontend, Backend, QA, UI, Pending.
       Ensure the tags are highly relevant to software development processes, project management, and product building.
     `;
-      setLoading(true);
+      
       try {
         const response = await openai.chat.completions.create({
           model: "gpt-3.5-turbo",
@@ -51,6 +52,7 @@ export const useTagGenerator = (
 
   useEffect(() => {
     if (taskTitle && taskDescription) {
+      setLoading(true);
       generateTags.cancel();
       generateTags(taskTitle, taskDescription);
     }

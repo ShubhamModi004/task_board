@@ -1,0 +1,21 @@
+@import "../../../styles/common.scss";
+
+.tags {
+  display: flex;
+  align-items: center;
+  margin-left: 0.28125rem;
+
+  div:nth-child(n + 1) {
+    margin-left: -0.28125rem;
+  }
+
+  .tag {
+    position: relative;
+    border-radius: 50%;
+    width: 0.5625rem;
+    height: 0.5625rem;
+    background-color: $red;
+    flex-shrink: 0;
+    border: 0.03125rem solid white;
+  }
+}

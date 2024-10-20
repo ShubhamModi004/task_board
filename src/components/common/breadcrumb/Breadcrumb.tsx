@@ -20,7 +20,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
             {item}
             {index < items.length - 1 && (
               <span className={styles["breadcrumb__separator"]}>
-                <Image src={"/assets/icons/right.webp"} alt='separator' width={4.44} height={7.76} />
+                <Image src={"/assets/icons/right.svg"} alt='separator' width={20} height={20} />
               </span>
             )}
         </li>

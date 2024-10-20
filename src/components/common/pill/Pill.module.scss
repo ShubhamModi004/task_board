@@ -20,6 +20,6 @@
   p {
     @include p1;
     color: $g300;
-    white-space: nowrap
+    white-space: nowrap;
   }
 }

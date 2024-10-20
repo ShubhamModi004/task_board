@@ -107,7 +107,7 @@ const TableRow = (({ task, loading }: { task: Task; loading: boolean }) => {
     if (!task.tags?.length || task.tags[0] === "") return null;
     return (
       <Image
-        src="/assets/icons/Tag.webp"
+        src="/assets/icons/Tag.svg"
         alt="Tags"
         width={18}
         height={18}

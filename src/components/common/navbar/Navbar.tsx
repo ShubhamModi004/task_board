@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className={styles["inner_container"]}>
         <Link href={"/"} className={styles["all_tasks"]}>
           <Image
-            src={"/assets/icons/Tasks.webp"}
+            src={"/assets/icons/Tasks.svg"}
             alt="Tasks"
             width={16}
             height={16}
@@ -20,7 +20,7 @@ const Navbar = () => {
         </Link>
         <Link href={"/create"} className={styles["create"]}>
           <Image
-            src={"/assets/icons/Create.webp"}
+            src={"/assets/icons/Create.svg"}
             alt="Create"
             width={16}
             height={16}

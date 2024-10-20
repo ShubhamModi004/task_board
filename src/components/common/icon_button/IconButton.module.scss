@@ -8,16 +8,14 @@
   width: 1.125rem;
   height: 1.125rem;
   transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: $g400;
-  }
-}
-
-.active {
-  background-color: $g400;
-}
-
-.in_active {
+  position: relative;
   background-color: transparent;
+}
+
+.selected {
+  background-color: $g100;
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.1rem;
 }

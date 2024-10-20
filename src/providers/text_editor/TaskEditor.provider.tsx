@@ -43,16 +43,7 @@ const TaskEditorProvider = ({ children }: Props): JSX.Element => {
 
   const editor = useEditor({
     extensions: [
-      StarterKit.configure({
-        bulletList: {
-          keepMarks: true,
-          keepAttributes: false,
-        },
-        orderedList: {
-          keepMarks: true,
-          keepAttributes: false,
-        },
-      }),
+      StarterKit,
       Highlight,
       Typography,
       Heading,

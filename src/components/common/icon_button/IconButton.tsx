@@ -26,6 +26,7 @@ const IconButton = ({
       )}
       {...rest}
     >
+      {isActive && <div className={styles["selected"]} />}
       {image}
     </button>
   );

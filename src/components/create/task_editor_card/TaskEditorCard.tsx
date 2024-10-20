@@ -43,7 +43,7 @@ const TaskEditorCard = (): JSX.Element => {
   const CalendarImage = () => {
     return (
       <NextImage
-        src={"/assets/icons/calendar.webp"}
+        src={"/assets/icons/Calendar.svg"}
         alt="Calendar"
         width={16}
         height={16}
@@ -78,6 +78,33 @@ const TaskEditorCard = (): JSX.Element => {
     );
   }, [actions, title, status, assignee, priority, project, tags]);
 
+  const aiIconVariants = {
+    idle: {
+      scale: 1,
+      rotate: [0, 0, 0, 0]
+    },
+    typing: {
+      scale: [1, 1.2, 1], 
+      rotate: [0, 15, -15, 0], 
+      transition: {
+        duration: 1,
+        ease: "easeInOut",
+        repeat: Infinity, 
+        repeatType: "loop" as const,
+      },
+    },
+  };
+
+  const handleSelection = useCallback((item: string) => {
+    const isAlreadySelected = tags?.includes(item);
+    if (isAlreadySelected) {
+      actions?.deleteTags(item);
+    } else {
+      actions.setTags(item);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tags]);
+
   return (
     <AnimatePresence>
       <div className={styles["container"]}>
@@ -109,38 +136,49 @@ const TaskEditorCard = (): JSX.Element => {
           >
             <TextEditor />
           </section>
-          {!tagsLoading && (
-            <motion.section
-              className={styles["container_top_ai_suggestions"]}
-              initial={{ height: "0px", opacity: 0 }}
-              animate={{
-                height: generatedTags && generatedTags?.length > 0 ? "auto" : "0px",
-                opacity: generatedTags && generatedTags?.length > 0 ? 1 : 0,
-              }}
-              transition={{ duration: 0.1, ease: "linear" }}
-            >
-              <AnimatePresence>
-                {generatedTags?.map((tag, index) => {
-                  console.log("tags", tags);
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -10 }}
-                      transition={{ duration: 0.1, ease: "easeInOut" }}
-                    >
-                      <DashedButton
-                        onClick={() => handleDelete(tag)}
-                        imagePath="/assets/icons/close.webp"
-                        text={tag}
-                      />
-                    </motion.div>
-                  );
-                })}
-              </AnimatePresence>
-            </motion.section>
-          )}
+
+          <motion.section
+            className={styles["container_top_ai_suggestions"]}
+            initial={{ height: "0px", opacity: 0 }}
+            animate={{
+              height:
+                generatedTags && generatedTags?.length > 0 ? "auto" : "0px",
+              opacity: generatedTags && generatedTags?.length > 0 ? 1 : 0,
+            }}
+            transition={{ duration: 0.1, ease: "linear" }}
+          >
+            <AnimatePresence>
+              <motion.div
+                className={styles["ai_icon"]}
+                variants={aiIconVariants}
+                initial="idle"
+                animate={tagsLoading ? "typing" : "idle"}
+              >
+                <NextImage
+                  src={"/assets/icons/AI.svg"}
+                  alt={"AI"}
+                  width={20}
+                  height={20}
+                />
+              </motion.div>
+              {generatedTags?.map((tag, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.1, ease: "easeInOut" }}
+                >
+                  <DashedButton
+                    selected={tags?.includes(tag)}
+                    onClick={() => handleSelection(tag)}
+                    imagePath="/assets/icons/close.webp"
+                    text={tag}
+                  />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.section>
           <motion.section
             className={styles["container_top_task_attachements"]}
             layout

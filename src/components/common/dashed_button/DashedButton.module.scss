@@ -14,6 +14,10 @@
   outline: none; 
   cursor: pointer; 
 
+  &.selected {
+    background-color: $g150; 
+  }
+
   p {
     @include p2;
     color: $g300;
