@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, Suspense } from "react";
 // components
 import ModalContent from "@/components/home/modalContent/ModalContent";
 import TableComponent from "@/components/home/table/Table";
@@ -32,7 +32,9 @@ const List = () => {
   return (
     <div className="task-list-container">
       <TaskProvider>
-        <TableComponent data={tasks} loading={loading} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <TableComponent data={tasks} loading={loading} />
+        </Suspense>
         <ModalContent />
       </TaskProvider>
     </div>
