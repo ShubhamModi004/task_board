@@ -21,7 +21,7 @@ const Sidebar = () => {
                 </div>
 
                 <Link href={'/create'} className={styles['bttn']} >
-                    <Image width={16} height={16} src={"/assets/icons/create.svg"} alt={"create-icon"} />
+                    <Image width={16} height={16} src={"/assets/icons/Createnew.svg"} alt={"create-icon"} />
                 </Link>
             </div>
             <DropDown selectedItem={selectedItem} onSelect={function (s: string): void {
