@@ -1,5 +1,5 @@
 "use client";
-import {  useCallback, useMemo, useReducer } from "react";
+import { useCallback, useMemo, useReducer } from "react";
 // context
 import { TaskContext } from "./Task.context";
 //reducers
@@ -35,11 +35,11 @@ const TaskProvider = ({ children }: Props): JSX.Element => {
           tags,
           project,
         }: Task) => {
-          handleSaveTask({title, description, status, assignee, priority, tags, project});
+          handleSaveTask({ title, description, status, assignee, priority, tags, project });
         },
         clearTask: () => {
           clearTaskData();
-        }
+        },
       },
     }),
     [state, handleSaveTask, clearTaskData]

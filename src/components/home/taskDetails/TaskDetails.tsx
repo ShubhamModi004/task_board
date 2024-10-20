@@ -32,6 +32,7 @@ import { statuses } from "@/utils/taskStatuses";
 import { assignees } from "@/utils/taskAssignees";
 import { priorities } from "@/utils/taskPriorities";
 import { projects } from "@/utils/taskProjects";
+import AvatarGroup from "@/components/common/avatarGroup";
 
 // types
 
@@ -47,14 +48,6 @@ const TaskDetailPage = () => {
     return (
       statuses.find(
         (item) => item.title.toUpperCase() === task?.status?.toUpperCase()
-      ) || null
-    );
-  }, [task]);
-
-  const selectedAssignee = useMemo(() => {
-    return (
-      assignees.find(
-        (item) => item.title.toUpperCase() === task?.assignee?.toUpperCase()
       ) || null
     );
   }, [task]);
@@ -117,12 +110,7 @@ const TaskDetailPage = () => {
               placeholder={selectedStatus?.title}
             />
           )}
-          {selectedAssignee && (
-            <Pill
-              image={selectedAssignee?.image}
-              placeholder={selectedAssignee?.title}
-            />
-          )}
+          <AvatarGroup assignees={task?.assignee} />
           {selectedPriority && (
             <Pill
               image={selectedPriority?.image}

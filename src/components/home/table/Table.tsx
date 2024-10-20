@@ -2,9 +2,12 @@
 import React, {
   useCallback,
   useContext,
+  useMemo,
+  useEffect,
+  useState
 } from "react";
 import Image from "next/image";
-
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 // packages
 import { motion } from "framer-motion";
 // styles
@@ -15,6 +18,7 @@ import { capitalizeFirstLetter } from "@/helpers/helpers";
 // types
 import { TaskContext } from "@/providers/task/Task.context";
 import { Task } from "@/providers/task/Task.reducer";
+import List from "./List";
 
 interface TableProps {
   data?: Task[];
@@ -142,42 +146,58 @@ const TableRow = (({ task, loading }: { task: Task; loading: boolean }) => {
 });
 
 const TableComponent: React.FC<TableProps> = ({ data, loading }) => {
+  const searchParams = useSearchParams();
+  const [filter, setFilter] = useState('')
+  useEffect(() => {
+    const typeParam = searchParams?.get('filter');
+    setFilter(typeParam ? typeParam : '')
+  }, [searchParams]);
+
+  const filteredData = useMemo(() => {
+    if (filter && filter != 'All') {
+      return data?.filter((i) => String(i?.project)?.toLowerCase() == filter?.toLowerCase());
+    } else {
+      return data;
+    }
+  }, [data, filter])
+
   return (
-    <motion.div
-      className={styles["table-container"]}
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-    >
-      <table className={styles["table"]}>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Status</th>
-            <th>Priority</th>
-            <th>Assignee</th>
-            <th>Project</th>
-            <th>Tags</th>
-          </tr>
-        </thead>
-        <tbody>
-          {loading && !data
-            ? [...Array(5)].map((_, i) => (
-                <tr key={i} className={styles["shimmer-row"]}>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              ))
-            : data?.map((task, index) => (
-                <TableRow key={index} task={task} loading={loading} />
-              ))}
-        </tbody>
-      </table>
-    </motion.div>
+    <List data={filteredData} loading={loading} filter={filter} />
+    // <motion.div
+    //   className={styles["table-container"]}
+    //   initial={{ opacity: 1 }}
+    //   animate={{ opacity: 1 }}
+    //   transition={{ duration: 0.6 }}
+    // >
+    //   <table className={styles["table"]}>
+    //     <thead>
+    //       <tr>
+    //         <th>Title</th>
+    //         <th>Status</th>
+    //         <th>Priority</th>
+    //         <th>Assignee</th>
+    //         <th>Project</th>
+    //         <th>Tags</th>
+    //       </tr>
+    //     </thead>
+    //     <tbody>
+    //       {loading && !data
+    //         ? [...Array(5)].map((_, i) => (
+    //           <tr key={i} className={styles["shimmer-row"]}>
+    //             <td></td>
+    //             <td></td>
+    //             <td></td>
+    //             <td></td>
+    //             <td></td>
+    //             <td></td>
+    //           </tr>
+    //         ))
+    //         : data?.map((task, index) => (
+    //           <TableRow key={index} task={task} loading={loading} />
+    //         ))}
+    //     </tbody>
+    //   </table>
+    // </motion.div>
   );
 };
 

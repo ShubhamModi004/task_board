@@ -1,12 +1,16 @@
 'use client'
 import React, { useState } from "react";
 import Image from "next/image";
-
+import { useRouter, usePathname, } from 'next/navigation';
 // styles
 import styles from "./Sidebar.module.scss";
 import DropDown from "../drop_down";
+import Link from "next/link";
 
 const Sidebar = () => {
+    const router = useRouter();
+    const pathName = usePathname();
+
     const [selectedItem, setSelected] = useState<string>('');
 
     return (
@@ -17,12 +21,13 @@ const Sidebar = () => {
                     <span className={styles['name']}>Task Board</span>
                 </div>
 
-                <button className={styles['bttn']}>
+                <Link href={'/create'} className={styles['bttn']} >
                     <Image width={16} height={16} src={"/assets/icons/create.svg"} alt={"create-icon"} />
-                </button>
+                </Link>
             </div>
             <DropDown selectedItem={selectedItem} onSelect={function (s: string): void {
                 setSelected(s);
+                router.push(`${pathName}?filter=${s}`);
             }} />
         </nav>
     );

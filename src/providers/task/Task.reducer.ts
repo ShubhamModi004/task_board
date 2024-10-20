@@ -9,7 +9,9 @@ export interface Task {
   assignee?: ASSIGNEE[];
   priority?: PRIORITY;
   tags?: string[];
-  project?: PROJECT;
+  project?: PROJECT;  
+  createdAt?:string
+
 }
 
 export interface TaskState {

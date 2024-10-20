@@ -71,7 +71,7 @@ const TaskEditorCard = (): JSX.Element => {
     actions?.saveTask(
       title,
       status,
-      assignee?.name || "",
+      assignee || [],
       priority,
       tags,
       project

@@ -17,7 +17,7 @@ const DropDown = ({ selectedItem, onSelect }: { selectedItem: string, onSelect: 
             </div>
             {selected && <div className={styles['drop_down_cont']}>
                 <div className={styles['item']}>
-                    <div onClick={() => { onSelect('Issues') }} className={`${styles['title_cont']} ${selectedItem == 'Issues' && styles['selected']}`}>
+                    <div onClick={() => { onSelect('All') }} className={`${styles['title_cont']} ${selectedItem == 'Issues' && styles['selected']}`}>
                         <Image width={16} height={16} src={"/assets/icons/issues.svg"} alt={"icon"} />
                         <span className={styles['item-title']}>Issues</span>
                     </div>
