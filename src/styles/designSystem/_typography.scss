@@ -57,3 +57,13 @@ $font-weight-light: 300;
 }
 
 
+@mixin header2 {
+  @include text-style(0.875rem, $font-weight-semi-bold);
+  letter-spacing: 0.2px;
+}
+
+@mixin subtitle_2 {
+  @include text-style(0.8125rem, $font-weight-medium);
+  line-height: 1.25rem;
+  letter-spacing: 0.2px;
+}

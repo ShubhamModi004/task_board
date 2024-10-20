@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { nunito } from './fonts/fonts';
 
 import "./globals.css";
-import Navbar from "@/components/common/navbar/Navbar";
+import Sidebar from "@/components/common/sidebar";
 
 
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={nunito.className}>
-        <Navbar />
+        <Sidebar />
         {children}
       </body>
     </html>

@@ -1,0 +1,138 @@
+@import '../../../styles/common.scss';
+
+.container {
+  width: 100%;
+  margin-top: 0.5rem;
+  position: relative;
+
+  .selected {
+    background-color: $highlight;
+    &:hover {
+      background-color: $highlight !important;
+    }
+  }
+
+  .header {
+    @include row;
+    @include align_center;
+    height: 1.75rem;
+    border-radius: 0.25rem;
+    padding: 0px 5px;
+    &:hover {
+      background: lch(69.09 1 282.863 / 0.2);
+    }
+
+    .title {
+      @include header;
+      font-style: normal;
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: lch(18.74 1 282.863);
+      line-height: 1.4375rem;
+      font-weight: 500;
+      margin-right: 0.125rem;
+    }
+
+    .img_cont {
+      display: inline-flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      border-radius: 4px;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      background-color: rgba(255, 46, 204, 0.12);
+      margin-right: 0.438rem;
+    }
+
+    .arrow_left {
+      will-change: transform;
+      transform: rotate(0deg);
+      transition: transform 0.3s;
+      margin-left: 0.125rem;
+    }
+    .arrow_down {
+      will-change: transform;
+      transform: rotate(90deg);
+      transition: transform 0.3s;
+    }
+  }
+
+  .item-title {
+    @include subtitle_2;
+    font-style: normal;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 0.5rem;
+  }
+
+  .drop_down_cont {
+    width: 100%;
+    height: 50px;
+    transition: 1 0.5s ease-in, visibility 0.5s ease-in;
+
+    .list_cont {
+      margin: 0.063rem 0px;
+    //   border-left: 1.5px solid rgba(166, 166, 166, 0.5);
+      margin-left: 1.688rem;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        left: -3px;
+        top: 1px;
+        bottom: 1px;
+        width: 1px;
+        border-radius: 0.5px;
+        background-color: #D5d5d5;
+      }
+    }
+
+    .item {
+      width: 100%;
+      margin: 0.063rem 0;
+      border-radius: 0.25rem;
+
+      .title_cont {
+        @include row;
+        @include align_center;
+        height: 1.75rem;
+        border-radius: 0.25rem;
+        margin: 0.063rem 0px;
+        padding-left: 1rem;
+        &:hover {
+          background: lch(69.09 1 282.863 / 0.2);
+        }
+      }
+
+      .filter_cont {
+        @include row;
+        margin-left: 1.4rem;
+        margin: 0.063rem 0px;
+        margin-left: 0.375rem;
+        border-radius: 0.25rem;
+        height: 1.75rem;
+        @include align_center;
+        &:hover {
+          background: lch(69.09 1 282.863 / 0.2);
+        }
+      }
+
+      .filter-title {
+        @include subtitle_2;
+        font-style: normal;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: 0.8rem;
+      }
+    }
+  }
+}
