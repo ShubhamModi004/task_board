@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useContext, useMemo, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic"; // For dynamic import of EmojiPicker
 

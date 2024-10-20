@@ -29,7 +29,6 @@ import Dashed_button from "@/components/common/dashed_button";
 
 // constants
 import { statuses } from "@/utils/taskStatuses";
-import { assignees } from "@/utils/taskAssignees";
 import { priorities } from "@/utils/taskPriorities";
 import { projects } from "@/utils/taskProjects";
 import AvatarGroup from "@/components/common/avatarGroup";

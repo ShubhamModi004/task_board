@@ -51,15 +51,6 @@ const TaskEditorCard = (): JSX.Element => {
     );
   };
 
-  const handleDelete = useCallback(
-    (tag: string) => {
-      actions.deleteTags(tag);
-    },
-    [actions]
-  );
-
-  // Debounced function for setting the title
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedSetTitle = useCallback(
     debounce((value: string) => {
       actions?.setTitle(value);

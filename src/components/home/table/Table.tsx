@@ -7,7 +7,7 @@ import React, {
   useState
 } from "react";
 import Image from "next/image";
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 // packages
 import { motion } from "framer-motion";
 // styles

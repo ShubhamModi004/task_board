@@ -9,7 +9,6 @@ import Link from "next/link";
 
 const Sidebar = () => {
     const router = useRouter();
-    const pathName = usePathname();
 
     const [selectedItem, setSelected] = useState<string>('');
 
