@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import Image from "next/image";
-import { useRouter, usePathname, } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 // styles
 import styles from "./Sidebar.module.scss";
 import DropDown from "../drop_down";

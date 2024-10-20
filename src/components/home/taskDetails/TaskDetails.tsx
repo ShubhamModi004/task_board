@@ -98,7 +98,7 @@ const TaskDetailPage = () => {
         <section className={styles["container_top_ai_suggestions"]}>
           {task?.tags?.map((tag, index) => (
             <div key={index}>
-              <Dashed_button imagePath="/assets/icons/close.webp" text={tag} />
+              <Dashed_button text={tag} />
             </div>
           ))}
         </section>

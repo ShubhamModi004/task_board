@@ -28,7 +28,7 @@ import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
 import TaskList from "@tiptap/extension-task-list";
 import TaskItem from "@tiptap/extension-task-item";
-import { PRIORITY, PROJECT, TASKSTATUS } from "@/types/type";
+import { ASSIGNEE, PRIORITY, PROJECT, TASKSTATUS } from "@/types/type";
 import { useRouter } from "next/navigation";
 import { useTagGenerator } from "@/hooks/useTagGenerator";
 
@@ -71,7 +71,7 @@ const TaskEditorProvider = ({ children }: Props): JSX.Element => {
     async (
       title: string,
       status: TASKSTATUS,
-      assignee?: string,
+      assignee?: ASSIGNEE[],
       priority?: PRIORITY,
       tags?: string[],
       project?: PROJECT
@@ -154,7 +154,7 @@ const TaskEditorProvider = ({ children }: Props): JSX.Element => {
         saveTask: (
           title: string,
           status: TASKSTATUS,
-          assignee: string,
+          assignee: ASSIGNEE[],
           priority: PRIORITY | undefined,
           tags: string[] | undefined,
           project: PROJECT | undefined

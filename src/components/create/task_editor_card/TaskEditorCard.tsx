@@ -163,7 +163,6 @@ const TaskEditorCard = (): JSX.Element => {
                   <DashedButton
                     selected={tags?.includes(tag)}
                     onClick={() => handleSelection(tag)}
-                    imagePath="/assets/icons/close.webp"
                     text={tag}
                   />
                 </motion.div>
