@@ -38,7 +38,8 @@ const LineItem = ({ task, loading }: { task: Task; loading: boolean }) => {
   };
 
   const renderStatus = useCallback(() => {
-    const image = capitalizeFirstLetter(task.status || "");
+    let image = capitalizeFirstLetter(task.status || "");
+    if (image == "Inprogress") image = "InProgress"
     return (
       <Image
         src={`/assets/icons/${image}.svg`}

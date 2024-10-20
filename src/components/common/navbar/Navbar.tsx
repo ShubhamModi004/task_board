@@ -20,7 +20,7 @@ const Navbar = () => {
         </Link>
         <Link href={"/create"} className={styles["create"]}>
           <Image
-            src={"/assets/icons/Create.svg"}
+            src={"/assets/icons/create.svg"}
             alt="Create"
             width={16}
             height={16}
