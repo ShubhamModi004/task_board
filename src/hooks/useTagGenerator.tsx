@@ -18,8 +18,7 @@ export const useTagGenerator = (
   // Debounced function that only runs after user stops typing for the delay period
   const generateTags = useCallback(
     debounce(async (title: string, description: string) => {
-      console.log("title", title);
-      console.log("description", description);
+      return;
       if (!title || !description || title == "Task Title" ) return;
 
       const prompt = `

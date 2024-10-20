@@ -19,7 +19,7 @@ export interface TaskEditorContext extends TaskEditorState {
         setTags: (tags: string) => void;
         deleteTags: (tags: string) => void;
         setProject: (project: PROJECT) => void;
-        saveTask: (title: string, status: TASKSTATUS, assignee: string, priority: PRIORITY | undefined , tags: string[] | undefined, project: PROJECT | undefined) => void;
+        saveTask: (title: string, status: TASKSTATUS, assignee: ASSIGNEE[], priority: PRIORITY | undefined , tags: string[] | undefined, project: PROJECT | undefined) => void;
     }
 }
 
