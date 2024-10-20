@@ -11,7 +11,7 @@ import { Task } from "@/providers/task/Task.reducer";
 const List = () => {
   const [tasks, setTasks] = useState<Task[]>();
   const [loading, setLoading] = useState<boolean>(true);
-  
+
   const fetchTasks = useCallback(async () => {
     setLoading(true);
     try {
@@ -32,7 +32,7 @@ const List = () => {
   return (
     <div className="task-list-container">
       <TaskProvider>
-        <h1 className="task-list-title">Task List</h1>
+        {/* <h1 className="task-list-title">Task List</h1> */}
         <TableComponent data={tasks} loading={loading} />
         <ModalContent />
       </TaskProvider>
