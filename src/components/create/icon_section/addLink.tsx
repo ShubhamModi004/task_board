@@ -7,13 +7,32 @@ export const addLink = (editor: Editor | null) => {
   const url = prompt("Enter a URL:");
 
   if (url) {
-    editor
+    const selectedText = editor?.state?.selection?.empty
+          ? null
+          : editor?.state.doc.textBetween(
+              editor?.state.selection.from,
+              editor?.state.selection.to
+            );
+
+    console.log("selectedText", selectedText);
+    if (!selectedText) {
+      editor
       .chain()
       .focus()
-      .extendMarkRange("link") // Extends the current selection to the whole link
+      .insertContent(`<p>${url}</p>`)
+      .extendMarkRange("link") 
       .setLink({ href: url })
       .run();
+    } else {
+      editor
+      .chain()
+      .focus()
+      .extendMarkRange("link") 
+      .setLink({ href: url })
+      .run();
+    }
+   
   } else {
-    editor.chain().focus().unsetLink().run(); // Remove the link if no URL is provided
+    editor.chain().focus().unsetLink().run(); 
   }
 };
