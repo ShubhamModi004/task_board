@@ -117,7 +117,6 @@ const DropdownPill: React.FC<Props> = ({
                 const isChecked = selectedItems.some(
                   (selected) => selected.id === item.id
                 );
-                console.log("isChecked", isChecked, item);
                 return (
                   <div
                     onClick={() => handleClick(item)}
