@@ -65,7 +65,6 @@ const LineItem = ({ task, loading }: { task: Task; loading: boolean }) => {
   }, [task.priority]);
 
   const renderAssignee = useCallback(() => {
-    console.log("task?.assignee", task?.assignee);
     if (!task?.assignee || !task?.assignee?.length) {
       return (
         <Image

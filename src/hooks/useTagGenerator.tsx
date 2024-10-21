@@ -15,10 +15,11 @@ export const useTagGenerator = (
   const [generatedTags, setGeneratedTags] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
 
-  // Debounced function that only runs after user stops typing for the delay period
   const generateTags = useCallback(
     debounce(async (title: string, description: string) => {
-      if (!title || !description || title == "Task Title") return;
+      if (!title || !description || (title === "Task title" && description === "Describe this task")) {
+        return;
+      }
 
       const prompt = `
       Generate a list of max up to 2 and minimum 1 concise and relevant one word tags with First character as Capital (as keywords) based on the following task details: 
