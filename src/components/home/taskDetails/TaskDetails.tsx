@@ -93,7 +93,7 @@ const TaskDetailPage = () => {
           />
         </div>
         <section className={styles["container_top_task_title"]} id="task_title">
-          <TextInput label={task?.title} disabled />
+          <p>{task?.title}</p>
         </section>
 
         <section
