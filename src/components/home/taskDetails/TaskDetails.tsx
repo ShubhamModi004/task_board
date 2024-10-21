@@ -25,7 +25,6 @@ import Highlight from '@tiptap/extension-highlight'
 import Breadcrumb from "@/components/common/breadcrumb";
 import { PROJECT } from "@/types/type";
 import Platform from "@/components/common/platform";
-import TextInput from "@/components/common/textInput";
 import Pill from "@/components/common/pill";
 import Dashed_button from "@/components/common/dashed_button";
 
