@@ -110,10 +110,6 @@ const TaskDetailPage = () => {
               placeholder={selectedStatus?.title}
             />
           )}
-          <Pill
-              image={selectedStatus?.image}
-              placeholder={selectedStatus?.title}
-          />
           {task?.assignee && (
             <DropdownPill image={<AvatarGroup assignees={task?.assignee} />} pillPlaceholder="Assignee" disable={true}/>
           )}
