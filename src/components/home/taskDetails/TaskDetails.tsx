@@ -18,6 +18,8 @@ import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
 import TaskList from "@tiptap/extension-task-list";
 import TaskItem from "@tiptap/extension-task-item";
+import Typography from '@tiptap/extension-typography'
+import Highlight from '@tiptap/extension-highlight'
 
 // components
 import Breadcrumb from "@/components/common/breadcrumb";
@@ -39,8 +41,17 @@ import DropdownPill from "@/components/common/drop_down_pill";
 const TaskDetailPage = () => {
   const { task } = useContext(TaskContext);
   const editor = useEditor({
-    extensions: [StarterKit, Heading, Bold, Italic, Image, TaskList, TaskItem, Link],
-    content: `${task?.description}`,
+    extensions: [StarterKit,
+      Highlight,
+      Typography,
+      Heading,
+      TaskList,
+      TaskItem,
+      Bold,
+      Italic,
+      Link,
+      Image,],
+    content: `${JSON.parse(task?.description)}`,
     editable: false,
   });
 
@@ -77,10 +88,7 @@ const TaskDetailPage = () => {
               <Platform
                 key="platform-frontend"
                 platform={task?.project ? task?.project : PROJECT.FRONTEND}
-              />,
-              <p key="new-task" className={styles["task"]}>
-                New Task
-              </p>,
+              />
             ]}
           />
         </div>
