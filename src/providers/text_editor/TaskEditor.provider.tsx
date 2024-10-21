@@ -51,7 +51,9 @@ const TaskEditorProvider = ({ children }: Props): JSX.Element => {
       TaskItem,
       Bold,
       Italic,
-      Link,
+      Link.configure({
+        openOnClick: false,
+      }),
       Image,
     ],
     content: "<p>Describe this task</p>",

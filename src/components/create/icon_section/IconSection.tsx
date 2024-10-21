@@ -12,6 +12,7 @@ import Clip from "../clip";
 // context
 import { TaskEditorContext } from '@/providers/text_editor/TaskEditor.context';
 import { EmojiClickData } from "emoji-picker-react";
+import { addLink } from "./addLink";
 
 // Dynamically import EmojiPicker to prevent SSR issues
 const EmojiPicker = dynamic(() => import("emoji-picker-react"), { ssr: false });
@@ -53,8 +54,25 @@ const IconSection = (): JSX.Element | null => {
     },
     {
       name: "Code",
-      action: () => editor?.chain().focus().toggleCode().run(),
+      action: () => {
+        editor?.chain().focus().toggleCodeBlock().run();
+        setTimeout(() => {
+          editor?.chain().insertContent("<p></p>").focus().run();
+        }, 10);
+      },
       isActive: editor?.isActive("code") ?? false,
+    },
+    {
+      name: "Link",
+      action: () => {
+        addLink(editor);
+        setTimeout(() => {
+          editor?.chain().focus().extendMarkRange("link").run();
+          editor?.commands.setTextSelection(editor?.state?.selection?.to); 
+          editor?.chain().focus().insertContent("<p></p>").run(); 
+        }, 0); 
+      },
+      isActive: editor?.isActive("link") ?? false,
     },
     {
       name: "NumberListing",
